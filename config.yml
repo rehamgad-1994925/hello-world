@@ -5,34 +5,19 @@ jobs:
     docker:
       -  image: circleci/node:13.8.0
     steps: 
-      - checkout
-      - run:
-          name: "Print hello"
-          command:
-            echo "Hello"
-            npm install
-            npm run build
+      - run: echo Hello
+          
 
   print_world:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - checkout
-      - run:
-          name: "Print world"
-          command:
-            echo "World"
-            npm install
-            npm run build
-
-
-
-
-# Invoke jobs via workflows
-# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
+      - run: echo World
+            
 workflows:
-  say-hello-workflow:
     jobs:
       - print_hello
-      - Print world
+      - print_world
+          requires:
+            - print_hello
 
