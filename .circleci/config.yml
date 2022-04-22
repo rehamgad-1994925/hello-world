@@ -28,7 +28,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "Say my name"
+          name: "echo an env var that is part of our project"
           command: "echo $Reham_test"
           
 
